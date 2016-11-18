@@ -3,9 +3,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-    context: __dirname,
+    context: __dirname + "/src",
     devtool: debug ? "inline-sourcemap" : null,
-    entry: "./js/client.js",
+    entry: "./client.js",
     module: {
         loaders: [
             {
@@ -20,8 +20,12 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname,
-        filename: "./js/client.min.js"
+        path: __dirname + "/docs",
+        publicPath: "http://trumpprommises.us/",
+        filename: "./js/client.js"
+    },
+    devServer: {
+        contentBase:  __dirname + "/docs",
     },
     plugins: debug ? [] : [
         new webpack.optimize.DedupePlugin(),
