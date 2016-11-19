@@ -2,3 +2,4 @@
 .idea/copyright
 node_modules
 composer.lock
+.idea/workspace.xml
